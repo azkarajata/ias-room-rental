@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IAS Room Rental | Lini 2 Terminal Kargo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-page">
+    <section class="login-brand">
+      <img src="assets/ias-logo.png" alt="InJourney Aviation Services" class="logo">
+      <div>
+        <span class="eyebrow">ROOM RENTAL PLATFORM</span>
+        <h1>Sewa Ruangan<br>Gedung Lini 2</h1>
+        <p>Terminal Kargo Bandara Internasional Soekarno-Hatta</p>
+      </div>
+      <div class="brand-footer">InJourney Aviation Services</div>
+    </section>
+
+    <section class="login-panel">
+      <div class="login-card">
+        <span class="eyebrow">WELCOME</span>
+        <h2>Masuk ke Portal</h2>
+        <p class="muted">Kelola pemesanan ruangan secara mudah dan terpusat.</p>
+
+        <form id="loginForm">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" placeholder="Masukkan username" required>
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Masukkan password" required>
+
+          <button class="btn btn-primary btn-full" type="submit">Masuk</button>
+          <p id="loginMessage" class="error"></p>
+        </form>
+
+        <div class="demo-accounts">
+          <strong>Akun demo</strong>
+          <div><span>Customer</span> customer / customer123</div>
+          <div><span>Admin</span> admin / admin123</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
