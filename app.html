@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IAS Room Rental Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <img src="assets/ias-logo.png" alt="IAS" class="logo-small">
+      <div class="topbar-title">
+        <strong>IAS Room Rental</strong>
+        <span>Lini 2 Terminal Kargo Soekarno-Hatta</span>
+      </div>
+      <div class="topbar-actions">
+        <span id="roleBadge" class="badge"></span>
+        <button id="logoutBtn" class="btn btn-outline">Keluar</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <button class="nav-item active" data-section="dashboard">Dashboard</button>
+      <button class="nav-item" data-section="rooms">Daftar Ruangan</button>
+      <button class="nav-item customer-only" data-section="bookings">Pemesanan Saya</button>
+      <button class="nav-item admin-only" data-section="admin">Kelola Pemesanan</button>
+    </aside>
+
+    <main class="content">
+      <section id="dashboard" class="section active">
+        <div class="hero">
+          <div>
+            <span class="eyebrow">INJOURNEY AVIATION SERVICES</span>
+            <h1>Portal Sewa Ruangan</h1>
+            <p>Temukan dan pesan ruangan untuk kebutuhan operasional, meeting, training, atau kegiatan perusahaan.</p>
+          </div>
+          <div class="hero-chip">LINI 2 • CGK</div>
+        </div>
+
+        <div class="stats">
+          <div class="stat-card"><span>Ruangan</span><strong id="roomCount">0</strong></div>
+          <div class="stat-card"><span>Pemesanan Aktif</span><strong id="bookingCount">0</strong></div>
+          <div class="stat-card"><span>Status Sistem</span><strong class="online">Online</strong></div>
+        </div>
+
+        <div class="section-heading">
+          <div><h2>Ruangan tersedia</h2><p class="muted">Pilih ruangan sesuai kebutuhan Anda.</p></div>
+          <button class="btn btn-primary" data-go="rooms">Lihat Semua</button>
+        </div>
+        <div id="featuredRooms" class="room-grid"></div>
+      </section>
+
+      <section id="rooms" class="section">
+        <div class="section-heading">
+          <div><h2>Daftar Ruangan</h2><p class="muted">Informasi fasilitas dan tarif sewa.</p></div>
+        </div>
+        <div id="allRooms" class="room-grid"></div>
+      </section>
+
+      <section id="bookings" class="section customer-only">
+        <div class="section-heading">
+          <div><h2>Pemesanan Saya</h2><p class="muted">Riwayat dan status pemesanan Anda.</p></div>
+        </div>
+        <div id="myBookings"></div>
+      </section>
+
+      <section id="admin" class="section admin-only">
+        <div class="section-heading">
+          <div><h2>Kelola Pemesanan</h2><p class="muted">Pantau dan ubah status pemesanan customer.</p></div>
+        </div>
+        <div id="adminBookings"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="bookingModal" class="modal hidden">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <span class="eyebrow">BOOKING</span>
+      <h2 id="modalRoomName">Pesan Ruangan</h2>
+      <form id="bookingForm">
+        <input type="hidden" id="roomId">
+        <label for="bookingDate">Tanggal</label>
+        <input id="bookingDate" type="date" required>
+        <label for="startTime">Jam Mulai</label>
+        <input id="startTime" type="time" required>
+        <label for="endTime">Jam Selesai</label>
+        <input id="endTime" type="time" required>
+        <label for="purpose">Keperluan</label>
+        <textarea id="purpose" rows="3" placeholder="Contoh: meeting internal / training" required></textarea>
+        <button class="btn btn-primary btn-full" type="submit">Ajukan Pemesanan</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
